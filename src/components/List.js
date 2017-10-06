@@ -8,17 +8,13 @@ class List extends Component {
 			return <Card id={card.id}
 						 title={card.title}
 						 description={card.description}
-						 tasks={card.task} />
+						 tasks={card.tasks}
+						 status={card.status} />
 		});
-
-/*		let list = this.props.cards.map((index) => {
-			return <h3>{index}</h3>
-		});*/
-
-console.log(this.props);
 
 		return (
 			<div className="list">
+				<h2>{this.props.cards.status}</h2>
 				{cards}
 			</div>
 			)
