@@ -9,12 +9,12 @@ class List extends Component {
 						 title={card.title}
 						 description={card.description}
 						 tasks={card.tasks}
-						 status={card.status} />
+						 status={card.status}
+						 color={card.color} />
 		});
 
 		return (
 			<div className="list">
-				<h2>{this.props.cards.status}</h2>
 				{cards}
 			</div>
 			)
