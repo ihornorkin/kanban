@@ -59,21 +59,17 @@ ul {
     font-weight: bold;
     border-bottom: solid 5px transparent;
 }
-.card__title:before {
-    display: inline-block;
-    width: 1em;
-    content: 'X';
-}
-.card__title--is-open:before {
-    content: 'O';
-}
+
 .checklist__task:first-child {
     margin-top: 10px;
     padding-top: 10px;
     border-top: dashed 1px #ddd;
 }
-.checklist__task--remove:after{
-    display: inline-block;
-    color: #d66;
-    content: "+";
+
+.checklist--add-task {
+    border: 1px dashed #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 3px;
 }

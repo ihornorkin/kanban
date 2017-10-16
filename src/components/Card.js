@@ -35,6 +35,7 @@ class Card extends Component {
 		}
 		return (
 			<div className="card" onClick={this.toggleDetails.bind(this)}>
+				<div style={sideColor} />
 				<h2>{this.props.status}</h2>
 				<div className="card__title">{this.props.title}</div>
 				{cardDetails}
