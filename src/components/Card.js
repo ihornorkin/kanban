@@ -1,5 +1,21 @@
 import React, {Component} from 'react';
 import CheckList from './CheckList';
+import PropTypes from 'prop-types';
+
+let titlePropType = (props, propName, componentName) => {
+    if (props[propName]) {
+        let value = propName[propName];
+        if (typeof value !== 'string') {
+            return new Error(
+                `${propName} in ${componentName} is not string`
+            )
+        } else if (value.length > 80) {
+            return new Error(
+            `${propName} in ${componentName} is longer than 80 characters`
+            )
+        }
+    }
+};
 
 class Card extends Component {
 	constructor(props) {
@@ -24,7 +40,7 @@ class Card extends Component {
         	left: 0,
 			width: 7,
 			backgroundColor: this.props.color
-		}
+		};
 		if (this.state.showDetails) {
 			cardDetails = (
 					<div className={this.state.showDetails ? "card__title card__title--is-open" : "card__title"}>
@@ -42,6 +58,14 @@ class Card extends Component {
 			</div>
 			)
 	}
+}
+
+Card.propTypes = {
+	id: PropTypes.number,
+    title: titlePropType,
+    description: PropTypes.string,
+    color: PropTypes.string,
+    tasks: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default Card;

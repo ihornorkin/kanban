@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import KanbanBoadr from './components/KanbanBoard'
+import KanbanBoadr from './components/KanbanBoard';
+import ContactsApp from './components/ContactsApp';
 
 let cardsList = [
     {
@@ -30,6 +31,7 @@ class App extends Component {
     return (
       <div className="App">
         <KanbanBoadr cards={cardsList} />
+        <ContactsApp />
       </div>
     );
   }
