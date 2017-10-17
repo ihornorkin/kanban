@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import 'whatwg-fetch';
 
 class ContactsAppContainer extends Component {
     constructor(props) {
@@ -13,11 +14,9 @@ class ContactsAppContainer extends Component {
     componentDidMount() {
         fetch('./contacts.json')
             .then((response) => {
-                console.log(response.json());
                 return response.json();
             })
             .then((responseData) => {
-                console.log('fentching');
                 this.setState({contacts: responseData})
             })
             .catch((error) => {
@@ -60,7 +59,7 @@ class ContactsApp extends Component {
     }
 
 ContactsApp.propTypes = {
-    //contacts: PropTypes.arrayOf(PropTypes.object)
+    contacts: PropTypes.arrayOf(PropTypes.object)
 };
 
 class SearchBar extends Component {
