@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import KanbanBoard from './KanbanBoard';
-import update from 'react-addons-update'
+import update from 'react-addons-update';
 
 const API_URL = 'http://kanbanapi.pro-react.com/';
 const API_HEADERS = {
