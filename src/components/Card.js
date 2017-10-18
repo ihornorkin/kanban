@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import CheckList from './CheckList';
 import PropTypes from 'prop-types';
 
-let titlePropType = (props, propName, componentName) => {
+/*Custome validation*/
+/*let titlePropType = (props, propName, componentName) => {
     if (props[propName]) {
         let value = propName[propName];
         if (typeof value !== 'string') {
@@ -15,7 +16,7 @@ let titlePropType = (props, propName, componentName) => {
             )
         }
     }
-};
+};*/
 
 class Card extends Component {
 	constructor(props) {
@@ -26,7 +27,7 @@ class Card extends Component {
 	  };
 	}
 
-	toggleDetails() {
+	toggleDetails(event) {
 		this.setState({showDetails: !this.state.showDetails})
 	}
 
@@ -43,16 +44,18 @@ class Card extends Component {
 		};
 		if (this.state.showDetails) {
 			cardDetails = (
-					<div className={this.state.showDetails ? "card__title card__title--is-open" : "card__title"}>
+					<div className="card__title card__title--is-open">
 						{this.props.description}
-						<CheckList cardId={this.props.id} tasks={this.props.tasks} />
+						<CheckList taskCallbacks={this.props.taskCallbacks}
+								   cardId={this.props.id}
+								   tasks={this.props.tasks} />
 					</div>
 				);
 		}
 		return (
-			<div className="card" onClick={this.toggleDetails.bind(this)}>
+			<div className="card">
 				<div style={sideColor} />
-				<h2>{this.props.status}</h2>
+				<h2 onClick={this.toggleDetails.bind(this)}>{this.props.status}</h2>
 				<div className="card__title">{this.props.title}</div>
 				{cardDetails}
 			</div>
@@ -62,7 +65,7 @@ class Card extends Component {
 
 Card.propTypes = {
 	id: PropTypes.number,
-    title: titlePropType,
+    title: PropTypes.string,
     description: PropTypes.string,
     color: PropTypes.string,
     tasks: PropTypes.arrayOf(PropTypes.object)

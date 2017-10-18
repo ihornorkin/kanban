@@ -15,6 +15,9 @@ h1 {
     color: #3b414c;
     font-size: 20px;
 }
+h2 {
+    cursor: pointer;
+}
 ul {
     list-style-type: none;
     padding: 0;

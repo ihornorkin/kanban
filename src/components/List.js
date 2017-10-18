@@ -12,7 +12,8 @@ class List extends Component {
 						 description={card.description}
 						 tasks={card.tasks}
 						 status={card.status}
-						 color={card.color} />
+						 color={card.color}
+						 taskCallbacks={this.props.taskCallbacks}/>
 		});
 
 		return (
